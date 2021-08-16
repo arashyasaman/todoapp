@@ -3,7 +3,7 @@ import axios from "axios";
 import Modal from "../components/modal";
 import "./todo.css";
 
-//getDataFromLocalStorage
+//GET_DATA_FROM_LOCALSTORAGE
 const getLocalItems = () => {
   let list = localStorage.getItem("list");
 
@@ -13,20 +13,20 @@ const getLocalItems = () => {
     return [];
   }
 };
-//getDataFromLocalStorage
+//GET_DATA_FROM_LOCALSTORAGE
 
 const Todo = () => {
-  //setHooks
+  //SET_HOOKS
   const [inputData, setInputData] = useState("");
   const [items, setItems] = useState(getLocalItems());
   const [toggleSubmit, setToggleSubmit] = useState(true);
   const [isEditItem, setIsEditItem] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [MostViewdVideo, setMostViewdVideo] = useState("");
 
-  const enterRef = useRef();
   const inputRef = useRef(false);
 
-  //addItem
+  //ADD_ITEM
   const addItem = () => {
     if (!inputData) {
       console.log("EMPTY!");
@@ -56,16 +56,15 @@ const Todo = () => {
       }
     }
   };
-  //addItem
+  //ADD_ITEM
 
-  //Call
+  //CALL_API
   const showMostCountVideo = () => {
     setShowModal(true);
     axios("http://api.aparat.com/fa/v1/video/video/mostViewedVideos").then(
       (response) => {
         const myResponse = response.data;
         const siData = myResponse.data;
-        //console.log(siData);
 
         var mostViewedArray = [];
         siData.forEach((item) => {
@@ -73,7 +72,6 @@ const Todo = () => {
         });
 
         const maxNumber = Math.max(...mostViewedArray);
-        console.log("Largest Number:", maxNumber);
 
         const maxCount = siData.find((item) => {
           if (Number(item.attributes.visit_cnt) === maxNumber) {
@@ -81,23 +79,22 @@ const Todo = () => {
           }
         });
 
-        console.log("Most Visited:", maxCount.attributes.visit_cnt);
-        console.log("Most view Video Link:", maxCount.attributes.preview_src);
+        setMostViewdVideo(maxCount.attributes.preview_src);
       }
     );
   };
-  //Call
+  //CALL_API
 
-  //deleteItem
+  //DELETE_ITEM
   const deleteItem = (index) => {
     const updatedItems = items.filter((item) => {
       return item.id !== index;
     });
     setItems(updatedItems);
   };
-  //deleteItem
+  //DELETE_ITEM
 
-  //editItem
+  //EDIT_ITEM
   const editItem = (id) => {
     let editedItems = items.find((item) => {
       return item.id === id;
@@ -107,34 +104,20 @@ const Todo = () => {
     setInputData(editedItems.name);
     setIsEditItem(id);
   };
-  //editItem
-  //removeAll
+  //EDIT_ITEM
+
+  //REMOVE_ALL
   const removeAll = () => {
     setItems([]);
   };
-  //removeAll
+  //REMOVE_ALL
 
-  //addDataToLocalStorage
+  //ADD_DATA_TO_LOCALSTORAGE
   useEffect(() => {
     inputRef.current.focus();
     localStorage.setItem("list", JSON.stringify(items));
   }, [items]);
-  //addDataToLocalStorage
-
-  //ENTER
-  const EnterPress = useCallback(
-    (e) => {
-      if (e.key === "Enter") {
-        alert("aa");
-      }
-    },
-    [inputData, setInputData]
-  );
-  useEffect(() => {
-    document.addEventListener("Enter", EnterPress);
-    return () => document.addEventListener("Enter", EnterPress);
-  }, [EnterPress]);
-  //ENTER
+  //ADD_DATA_TO_LOCALSTORAGE
 
   return (
     <div className="main">
@@ -145,10 +128,7 @@ const Todo = () => {
           children={removeAll}
         >
           <h1>پربازدیدترین ویدئوی روز</h1>
-          <iframe
-            title="most"
-            src="https://static.cdn.asset.aparat.com/avt/36420365_15s.mp4"
-          ></iframe>
+          <iframe title="most" src={MostViewdVideo}></iframe>
         </Modal>
         <h1>لیست‌ کارهای روزانه</h1>
         <div className="add-box">
@@ -162,11 +142,7 @@ const Todo = () => {
           ></input>
 
           {toggleSubmit ? (
-            <i
-              onClick={addItem}
-              className="fa fa-plus todo-btn"
-              ref={enterRef}
-            ></i>
+            <i onClick={addItem} className="fa fa-plus todo-btn"></i>
           ) : (
             <i onClick={addItem} className="fa fa-save todo-btn"></i>
           )}

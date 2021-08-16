@@ -14,7 +14,7 @@ const Modal = ({ showModal, setShowModal, children }) => {
         setShowModal(false);
       }
     },
-    [showModal, setShowModal]
+    [setShowModal, showModal]
   );
   useEffect(() => {
     document.addEventListener("keydown", KeyPress);
