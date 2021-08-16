@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import axios from "axios";
 import Modal from "../components/modal";
 import "./todo.css";
@@ -22,6 +22,9 @@ const Todo = () => {
   const [toggleSubmit, setToggleSubmit] = useState(true);
   const [isEditItem, setIsEditItem] = useState(null);
   const [showModal, setShowModal] = useState(false);
+
+  const enterRef = useRef();
+  const inputRef = useRef(false);
 
   //addItem
   const addItem = () => {
@@ -113,9 +116,25 @@ const Todo = () => {
 
   //addDataToLocalStorage
   useEffect(() => {
+    inputRef.current.focus();
     localStorage.setItem("list", JSON.stringify(items));
   }, [items]);
   //addDataToLocalStorage
+
+  //ENTER
+  const EnterPress = useCallback(
+    (e) => {
+      if (e.key === "Enter") {
+        alert("aa");
+      }
+    },
+    [inputData, setInputData]
+  );
+  useEffect(() => {
+    document.addEventListener("Enter", EnterPress);
+    return () => document.addEventListener("Enter", EnterPress);
+  }, [EnterPress]);
+  //ENTER
 
   return (
     <div className="main">
@@ -138,11 +157,16 @@ const Todo = () => {
             type="text"
             value={inputData}
             name="addInput"
+            ref={inputRef}
             onChange={(e) => setInputData(e.target.value)}
           ></input>
 
           {toggleSubmit ? (
-            <i onClick={addItem} className="fa fa-plus todo-btn"></i>
+            <i
+              onClick={addItem}
+              className="fa fa-plus todo-btn"
+              ref={enterRef}
+            ></i>
           ) : (
             <i onClick={addItem} className="fa fa-save todo-btn"></i>
           )}
