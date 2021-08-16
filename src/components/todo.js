@@ -18,6 +18,7 @@ const getLocalItems = () => {
 const Todo = () => {
   //SET_HOOKS
   const [inputData, setInputData] = useState("");
+  const [disabled, setDisabled] = useState(false);
   const [items, setItems] = useState(getLocalItems());
   const [toggleSubmit, setToggleSubmit] = useState(true);
   const [isEditItem, setIsEditItem] = useState(null);
@@ -62,6 +63,7 @@ const Todo = () => {
   //CALL_API
   const showMostCountVideo = () => {
     setShowModal(true);
+    setDisabled(true);
     axios("http://api.aparat.com/fa/v1/video/video/mostViewedVideos").then(
       (response) => {
         const myResponse = response.data;
@@ -117,8 +119,9 @@ const Todo = () => {
   //ADD_DATA_TO_LOCALSTORAGE
   useEffect(() => {
     inputRef.current.focus();
+    setDisabled(false);
     localStorage.setItem("list", JSON.stringify(items));
-  }, [items]);
+  }, [items, showModal]);
   //ADD_DATA_TO_LOCALSTORAGE
 
   return (
@@ -138,6 +141,7 @@ const Todo = () => {
             name="addInput"
             ref={inputRef}
             onChange={(e) => setInputData(e.target.value)}
+            disabled={disabled}
           ></input>
 
           {toggleSubmit ? (
