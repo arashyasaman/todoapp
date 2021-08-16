@@ -73,10 +73,11 @@ const Todo = () => {
         console.log("Largest Number:", maxNumber);
 
         const maxCount = siData.find((item) => {
-          if (item.attributes.visit_cnt == maxNumber) {
+          if (Number(item.attributes.visit_cnt) === maxNumber) {
             return item.attributes.visit_cnt;
           }
         });
+
         console.log("Most Visited:", maxCount.attributes.visit_cnt);
         console.log("Most view Video Link:", maxCount.attributes.preview_src);
       }
