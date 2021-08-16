@@ -6,4 +6,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 We use:
 
-### `axios` `react-scripts`
+### `axios` `react-spring`
