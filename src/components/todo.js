@@ -23,6 +23,7 @@ const Todo = () => {
   const [isEditItem, setIsEditItem] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [MostViewdVideo, setMostViewdVideo] = useState("");
+  const [MostViewdVideoTitle, setMostViewdVideoTitle] = useState("");
 
   const inputRef = useRef(false);
 
@@ -80,6 +81,7 @@ const Todo = () => {
         });
 
         setMostViewdVideo(maxCount.attributes.preview_src);
+        setMostViewdVideoTitle(maxCount.attributes.title);
       }
     );
   };
@@ -128,7 +130,8 @@ const Todo = () => {
           children={removeAll}
         >
           <h1>پربازدیدترین ویدئوی روز</h1>
-          <iframe title="most" src={MostViewdVideo}></iframe>
+          <p>{MostViewdVideoTitle}</p>
+          <iframe title={MostViewdVideoTitle} src={MostViewdVideo}></iframe>
         </Modal>
         <h1>لیست‌ کارهای روزانه</h1>
         <div className="add-box">
