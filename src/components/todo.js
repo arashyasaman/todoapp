@@ -124,11 +124,7 @@ const Todo = () => {
   return (
     <div className="main">
       <div className="todo-app">
-        <Modal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          children={removeAll}
-        >
+        <Modal showModal={showModal} setShowModal={setShowModal} children={""}>
           <h1>پربازدیدترین ویدئوی روز</h1>
           <p>{MostViewdVideoTitle}</p>
           <iframe title={MostViewdVideoTitle} src={MostViewdVideo}></iframe>
