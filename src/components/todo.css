@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+.main {
+  background-color: #ddd;
+  min-height: 100vh;
+  padding: 2rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.todo-app h1 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 3rem;
+  color: #474554;
+}
+.add-box {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+input,
+input:focus,
+input:active,
+input:active:focus {
+  border: none;
+  padding: 2.3rem 1.5rem;
+  outline: none;
+  font-family: "vazir-web";
+}
+.add-box input[type="text"] {
+  min-width: 40rem;
+  height: 3.4rem;
+  padding: 2rem 1.2rem;
+  font-size: 1.8rem;
+  line-height: 1.42857143;
+  color: rgb(58, 57, 57);
+  background-color: #fff;
+  background-image: none;
+  border: none;
+  border-radius: 0.4rem;
+  -webkit-box-shadow: inset 0 0.1rem 0.1rem rgb(0 0 0 / 8%);
+  box-shadow: inset 0 0.1rem 0.1rem rgb(0 0 0 / 8%);
+}
+.todo-btn {
+  /* width: 5rem; */
+  display: flex;
+  justify-content: space-around;
+}
+.fa {
+  margin-right: -2.5rem;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  color: #666;
+  -webkit-transition: color 0.15s linear;
+  transition: color 0.15s linear;
+  font-size: 2rem;
+  -moz-transition: color 0.15s linear;
+  -ms-transition: color 0.15s linear;
+  -o-transition: color 0.15s linear;
+}
+.fa:hover {
+  color: rgb(47, 214, 122);
+}
+.fa-plus:before {
+  content: "\f067";
+  font-size: 1.5rem;
+}
+.todo-list {
+  margin-top: 3rem;
+  text-align: center;
+}
+.todo-item {
+  padding: 1.2rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.7rem;
+  margin-left: 0;
+  min-width: 40rem;
+  word-break: break-word;
+  background-color: #1b686a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todo-item:hover {
+  background: #23868a;
+  color: #fff;
+}
+.todo-item h3 {
+  padding-left: 1rem;
+  font-size: 1.6rem;
+  color: #fff;
+}
+.fa-trash-alt,
+.fa-edit {
+  background-color: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  color: rgb(251, 251, 251);
+  -webkit-transition: color 0.15s linear;
+  transition: color 0.15s linear;
+  font-size: 2rem;
+}
+.todo-item .fa-edit:hover {
+  color: rgb(47, 214, 122);
+}
+.fa-edit {
+  margin-left: 4rem;
+}
+.todo-item:hover .fa-trash-alt {
+  color: #ffd2bd;
+}
+.todo-item:hover .fa-edit {
+  color: #ffd2bd;
+}
+.todo-item:hover h3 {
+  color: #fff;
+}
+.remove-all {
+  background-color: #353535;
+  font-family: "vazir-web";
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  word-break: break-word;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto 0;
+}
+
+.remove-all:hover {
+  background-color: #444;
+  color: #fff;
+}
+.remove-all p {
+  padding: 1.2rem 0.8rem;
+  background-color: transparent;
+  font-size: 1.6rem;
+  width: 100%;
+}
+.handy-req {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 5px 2px;
+}

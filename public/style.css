@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "vazir-web";
+  src: url("./assets/fonts/Vazir-Regular.woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "vazir-web";
+  src: url("./assets/fonts/Vazir-Light.woff");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "vazir-web";
+  src: url("./assets/fonts/Vazir-Medium.woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "vazir-web";
+  src: url("./assets/fonts/Vazir-Bold.woff");
+  font-weight: 900;
+}
+
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: "vazir-web" !important;
+  font-weight: 500;
+}
