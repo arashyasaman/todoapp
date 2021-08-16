@@ -58,7 +58,7 @@ const Todo = () => {
   //Call
   const showMostCountVideo = () => {
     setShowModal(true);
-    axios("http://api.aparat.com/fa/v1/video/video/mostViewedVideos").then(
+    axios("https://jsonplaceholder.typicode.com/albums/1/photos").then(
       (response) => {
         const data = response.data;
         const maxNumber = data.reduce(
