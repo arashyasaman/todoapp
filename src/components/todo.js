@@ -58,22 +58,27 @@ const Todo = () => {
   //Call
   const showMostCountVideo = () => {
     setShowModal(true);
-    axios("https://jsonplaceholder.typicode.com/albums/1/photos").then(
+    axios("http://api.aparat.com/fa/v1/video/video/mostViewedVideos").then(
       (response) => {
-        const data = response.data;
-        const maxNumber = data.reduce(
-          (max, data) => (max = max > data.visit_cnt ? max : data.visit_cnt),
-          0
-        );
-        console.log("All Data:", data);
-        console.log("max Number:", maxNumber);
+        const myResponse = response.data;
+        const siData = myResponse.data;
+        //console.log(siData);
 
-        const maxCount = data.find((item) => {
-          if (item.id === maxNumber) {
-            return item.preview_src;
+        var mostViewedArray = [];
+        siData.forEach((item) => {
+          mostViewedArray.push(item.attributes.visit_cnt);
+        });
+
+        const maxNumber = Math.max(...mostViewedArray);
+        console.log("Largest Number:", maxNumber);
+
+        const maxCount = siData.find((item) => {
+          if (item.attributes.visit_cnt == maxNumber) {
+            return item.attributes.visit_cnt;
           }
         });
-        console.log("res:", maxCount.preview_src);
+        console.log("Most Visited:", maxCount.attributes.visit_cnt);
+        console.log("Most view Video Link:", maxCount.attributes.preview_src);
       }
     );
   };
