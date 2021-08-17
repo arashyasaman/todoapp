@@ -100,6 +100,7 @@ const Todo = () => {
 
   //EDIT_ITEM
   const editItem = (id) => {
+    inputRef.current.focus();
     let editedItems = items.find((item) => {
       return item.id === id;
     });
