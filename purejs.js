@@ -3,6 +3,7 @@ showtodo();
 let addInput = document.getElementById("addInput");
 let addBtn = document.getElementById("addBtn");
 let notempty = document.getElementById("notempty");
+let removeAll = document.getElementById("removeAll");
 
 addInput.value = "";
 addInput.focus();
@@ -10,6 +11,7 @@ addInput.focus();
 // ADD
 addBtn.addEventListener("click", function () {
   document.getElementById("req").style.display = "none";
+  removeAll.style.display = "block";
   addInputValue = addInput.value;
 
   if (addInputValue.trim() != 0) {
@@ -34,9 +36,10 @@ addBtn.addEventListener("click", function () {
   } else {
   }
 });
-
-if (todoItem.length != 0) {
+console.log(todoItem.length);
+if (todoItem.length > 0) {
   document.getElementById("req").style.display = "none";
+  removeAll.style.display = "block";
 }
 
 // Modal
@@ -161,8 +164,6 @@ function deletetodo(index) {
 }
 
 // DELETE ALL
-let removeAll = document.getElementById("removeAll");
-
 removeAll.addEventListener("click", function () {
   let webTodoList = localStorage.getItem("todolist");
   let todoItem = JSON.parse(webTodoList);
