@@ -46,7 +46,6 @@ if (todoItem.length > 0) {
 function showVideo() {
   fetch("http://api.aparat.com/fa/v1/video/video/mostViewedVideos")
     .then(function (response) {
-      // The API call was successful!
       return response.json();
     })
     .then(function (response) {
