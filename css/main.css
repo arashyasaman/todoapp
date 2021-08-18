@@ -1,0 +1,314 @@
+@font-face {
+  font-family: "vazir-web";
+  src: url("../fonts/Vazir-Regular.woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "vazir-web";
+  src: url("../fonts/Vazir-Light.woff");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "vazir-web";
+  src: url("../fonts/Vazir-Medium.woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "vazir-web";
+  src: url("../fonts/Vazir-Bold.woff");
+  font-weight: 900;
+}
+
+body {
+  text-align: right;
+  font-family: "vazir-web" !important;
+  font-weight: 500;
+  direction: rtl;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  background-color: #ddd;
+  min-height: 100vh;
+  padding: 2rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.todo-app h1 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2rem;
+  color: #474554;
+}
+.add-box {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.add-box i {
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  padding: 1.1rem 1.5rem 1rem;
+  box-shadow: inset 1px 0.1rem 0.1rem rgba(0, 0, 0, 0.08);
+  border-radius: 0.4rem;
+  font-size: 1.3rem;
+}
+input,
+input:focus,
+input:active,
+input:active:focus {
+  border: none;
+  padding: 1rem;
+  outline: none;
+  font-family: "vazir-web";
+}
+.add-box input[type="text"] {
+  min-width: 30rem;
+  height: 3.4rem;
+  padding: 1rem 0.6rem;
+  font-size: 1.2rem;
+  line-height: 1.42857143;
+  color: rgb(58, 57, 57);
+  background-color: #fff;
+  background-image: none;
+  border: none;
+  border-radius: 0.4rem;
+  -webkit-box-shadow: inset 0 0.1rem 0.1rem rgb(0 0 0 / 8%);
+  box-shadow: inset 0 0.1rem 0.1rem rgb(0 0 0 / 8%);
+}
+.todo-btn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.fa {
+  margin-right: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  color: #666;
+  -webkit-transition: color 0.15s linear;
+  transition: color 0.15s linear;
+  font-size: 1.5rem;
+  -moz-transition: color 0.15s linear;
+  -ms-transition: color 0.15s linear;
+  -o-transition: color 0.15s linear;
+}
+.fa:hover {
+  color: rgb(47, 214, 122);
+}
+.todo-list {
+  margin-top: 2rem;
+  text-align: center;
+}
+.todo-item {
+  padding: 1.2rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.7rem;
+  margin-left: 0;
+  min-width: 30rem;
+  word-break: break-word;
+  background-color: #1b686a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: ease 0.2s;
+  -webkit-transition: ease 0.2s;
+  -moz-transition: ease 0.2s;
+  -ms-transition: ease 0.2s;
+  -o-transition: ease 0.2s;
+}
+.todo-item:hover {
+  transition: ease 0.2s;
+  background: #23868a;
+  color: #fff;
+  -webkit-transition: ease 0.2s;
+  -moz-transition: ease 0.2s;
+  -ms-transition: ease 0.2s;
+  -o-transition: ease 0.2s;
+}
+.todo-item h3 {
+  padding-left: 1rem;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.todo-list i {
+  background-color: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  color: rgb(251, 251, 251);
+  -webkit-transition: color 0.15s linear;
+  transition: color 0.15s linear;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+.todo-app i:last-child {
+  margin-left: 0;
+}
+
+.todo-item:hover {
+  color: #ffd2bd;
+}
+.todo-item:hover i {
+  color: #ffd2bd;
+}
+
+.todo-item i:hover {
+  color: #d4a189;
+}
+
+.remove-all {
+  background-color: #353535;
+  font-family: "vazir-web";
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  word-break: break-word;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto 0;
+  transition: ease 0.2s;
+  -webkit-transition: ease 0.2s;
+  -moz-transition: ease 0.2s;
+  -ms-transition: ease 0.2s;
+  -o-transition: ease 0.2s;
+  display: flex;
+}
+.remove-all:hover {
+  transition: ease 0.2s;
+  background-color: #444;
+  color: #fff;
+}
+.remove-all p {
+  padding: 1.2rem 1rem;
+  background-color: transparent;
+  font-size: 1rem;
+  width: 100%;
+}
+.handy-req {
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 5px 2px;
+}
+
+@media screen and (max-width: 450px) {
+  .todo-item,
+  .add-box input[type="text"] {
+    min-width: auto;
+  }
+}
+
+.todo-item.done:after {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+.todo-item.done:hover {
+  background-color: #1b686a;
+}
+.todo-item.done:hover i {
+  color: #fff;
+}
+
+/* MODAL */
+
+.modal-bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 12px 3px rgba(0, 0, 0, 0.05);
+  z-index: 99999;
+  opacity: 0;
+  transition: ease 0.1s;
+  -webkit-transition: ease 0.1s;
+  -moz-transition: ease 0.1s;
+  -ms-transition: ease 0.1s;
+  -o-transition: ease 0.1s;
+  visibility: hidden;
+}
+.show {
+  display: flex;
+  height: 100vh;
+  opacity: 1;
+  visibility: visible;
+  transition: ease-in 0.05s;
+  -webkit-transition: ease-in 0.05s;
+  -moz-transition: ease-in 0.05s;
+  -ms-transition: ease-in 0.05s;
+  -o-transition: ease-in 0.05s;
+}
+
+.modal {
+  background-color: rgba(256, 256, 256, 1);
+  min-height: 500px;
+  width: 800px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: column;
+  border-radius: 15px;
+  z-index: 99999;
+  position: relative;
+  padding: 1rem;
+}
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  margin: 0 !important;
+  font-size: 2rem;
+}
+.modal h1 {
+  margin: 0;
+  color: #333;
+  font-weight: 700 !important;
+}
+.modal p {
+  color: #333;
+  margin: 0.3rem 0 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+}
+.modal iframe {
+  height: 400px;
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+.modal-content {
+  display: block;
+  width: 100%;
+}
+
+.noscroll {
+  height: 100vh;
+  overflow: hidden;
+}

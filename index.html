@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css">
+    <title>لیست کارها</title>
+</head>
+
+<body>
+    <div class="main" id="main">
+        <div class="todo-app">
+            <!-- MODAL -->
+            <div class="modal-bg" id="modal">
+                <div class="modal">
+                    <div class="modal-content">
+                        <h1>ویدپوی پربازدید هفته</h1>
+                        <p id="videotext"></p>
+                        <iframe id="iframeTag" src=""></iframe>
+                    </div>
+                    <i class="fa fa-times close-btn" id="closeModal"></i>
+                </div>
+            </div>
+            <!-- MODAL -->
+            <!-- ADD TODO -->
+            <h1>لیست‌ کارهای روزانه</h1>
+            <div class="add-box">
+                <input id="addInput" placeholder="کارهای خود را وارد نمایید" type="text" name="addInput" ></input>
+                <input id="saveInput" type="hidden"></input>
+                <i id="addBtn" class="fa fa-plus todo-btn"></i>
+                <i id="editBtn" class="fa fa-save todo-btn" style="display: none"></i>
+            </div>
+            <p class="handy-req" id="req" style="display: block">فیلد بالا الزامی می‌باشد</p>
+            <!-- ADD TODO -->
+            <!-- LIST TODO  -->
+            <div class="todo-list" id="listOfTodo">
+                <!-- EachItem -->
+            </div>
+            <!-- LIST TODO -->
+            <!-- REMOVE ALL -->
+            <div class="remove-all" id="removeAll">
+                <p>حذف همه موارد</p>
+            </div>
+            <!-- REMOVE ALL -->
+        </div>
+    </div>
+    <script src="./purejs.js"></script>
+</body>
+
+</html>
