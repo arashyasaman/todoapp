@@ -29,9 +29,9 @@ addBtn.addEventListener("click", function () {
 
     if (todoItem.length % 5 == 0) {
       showVideo();
+      addInput.blur();
     }
   } else {
-    //document.getElementById("req").style.display = "none";
   }
 });
 
