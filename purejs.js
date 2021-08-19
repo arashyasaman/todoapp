@@ -95,6 +95,7 @@ closeModal.addEventListener("click", function () {
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.classList.remove("show");
+    main.classList.remove("noscroll");
   }
 };
 
